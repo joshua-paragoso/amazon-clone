@@ -3,7 +3,7 @@ This is a follow through of building a amazon clone website during a participati
 -----------------------------------------------------------------------------------
 
 
----------------FROM CLEAVER PROGRAMMERS------------------------------------------------------
+---------------FROM CLEAVER PROGRAMMERS----------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
