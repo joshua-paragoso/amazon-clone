@@ -1,3 +1,9 @@
+---------------FROM JOSHUA PARAGOSO----------------------------------
+This is a follow through of building a amazon clone website during a participation in Clever Programmers 5 day React/JavaScript challenge 7 SEP 20 to 11 SEP 20
+-----------------------------------------------------------------------------------
+
+
+---------------FROM CLEAVER PROGRAMMERS---------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
