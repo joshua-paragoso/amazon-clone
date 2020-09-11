@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Checkout from "./Checkout";
 import Header from "./Header";
 import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -15,7 +16,7 @@ function App() {
           {/* goes to checkout page */}
           <Route path="/checkout">
             <Header />
-            <h1> I am a checkout customer</h1>
+           <Checkout/>
           </Route>
           
           {/* goes to main page */}
