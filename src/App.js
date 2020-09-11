@@ -10,18 +10,18 @@ function App() {
     //BEM
     <Router>
       <div className="app">
-        
+        {/* Header will now appear on both home and checkout */}
+        <Header />
         <Switch> 
           
           {/* goes to checkout page */}
           <Route path="/checkout">
-            <Header />
-           <Checkout/>
+            
+            <Checkout/>
           </Route>
           
           {/* goes to main page */}
           <Route path="/">
-            <Header />
             <Home />
           </Route>
 
