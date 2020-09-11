@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { StateProvider } from './StateProvider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    
+    {/*initial state is what does the data look like in the beginning*/}
+    {/*reducer is how the data is manipulated  */}
+    <StateProvider initialState={initialState} reduce={reducer}>
+      <App />
+    </StateProvider>
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
