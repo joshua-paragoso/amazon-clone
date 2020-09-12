@@ -1,9 +1,21 @@
 import React from 'react'
 import "./Subtotal.css"
 import CurrenyFormat from "react-currency-format"
-import { Button } from '@material-ui/core'
+// import { Button } from '@material-ui/core'
+import { useStateValue } from "./StateProvider";
 
 function Subtotal() {
+
+    const [ {basket}] = useStateValue();
+    
+    //total cost of item
+    const calculatedTotal = (basket) => {
+       let total =  basket.reduce((price, item) => 
+            price + item.price
+        , 0);  
+        
+        return total
+    }
     return (
         <div className='subtotal'>
             <CurrenyFormat
@@ -13,8 +25,8 @@ function Subtotal() {
                     <>
                         <p>
                             {/*Part of the Homework*/}
-                            Subtotal (0 items):
-                                <strong> 0 </strong>
+                            Subtotal ({basket?.length} items):
+                                <strong> {calculatedTotal(basket)} </strong>
                         </p>
 
                         <small className="subtotal__gift">
