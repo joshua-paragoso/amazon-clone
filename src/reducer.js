@@ -1,7 +1,11 @@
 export const initialState = {
     basket: [],
     user: null,
-}
+};
+
+//Selector
+export const getBasketTotal = (basket) =>
+basket?.reduce((amount, item) => item.prive + amount,0); //iterates through the basket and tallies up the total
 
 //action is what youre trying to do to the basket
 const reducer=(state, action) => {

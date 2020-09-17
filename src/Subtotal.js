@@ -16,6 +16,7 @@ function Subtotal() {
         
         return total
     }
+
     return (
         <div className='subtotal'>
             <CurrenyFormat
@@ -25,7 +26,7 @@ function Subtotal() {
                     <>
                         <p>
                             {/*Part of the Homework*/}
-                            Subtotal ({basket?.length} items):
+                            Subtotal ({basket.length} items):
                                 <strong> {calculatedTotal(basket)} </strong>
                         </p>
 
