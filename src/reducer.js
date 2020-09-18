@@ -24,6 +24,35 @@ const reducer=(state, action) => {
                 //plus whatever the action that you passed inside buck
                 basket: [...state.basket, action.item],
             };
+
+        //when you press the basket to remove
+        case "REMOVE_FROM_BASKET":
+                //find the index youre trying to delete
+                //goes through all the basket items and if it matches the action id
+                const index = state.basket.findIndex(
+                    (basketItem) => basketItem.id === action.id
+                );
+    
+                //copy basket and put it into temp variable
+                //copy the state
+                let newBasket = [...state.basket];
+
+                //if you found the item
+                if(index >= 0){
+                    //new basket will look different
+                    newBasket.splice(index,1);
+                
+                }else{
+                    console.warn(
+                        'cant remove product (id: ${action.id}) as its not in the basket'
+                    );
+                }
+
+                //return current state
+                return{
+                    ...state,
+                    basket: newBasket
+                }
         
             //return to default state
             default:
