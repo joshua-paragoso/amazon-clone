@@ -12,16 +12,19 @@ function App() {
       <div className="app">
         {/* Header will now appear on both home and checkout */}
         <Header />
+        
         <Switch> 
           
-          {/* goes to checkout page */}
-          <Route path="/checkout">
-            
+          <Route path="/login">  {/* goes to login page */}
+            <h1> LOGIN PAGE</h1>
+          </Route>
+
+          <Route path="/checkout">  {/* goes to checkout page */}
             <Checkout/>
           </Route>
           
-          {/* goes to main page */}
-          <Route path="/">
+          
+          <Route path="/">{/* goes to main page */}
             <Home />
           </Route>
 

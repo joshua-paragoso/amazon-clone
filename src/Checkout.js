@@ -20,7 +20,7 @@ function Checkout(){
                     Your shopping basket
                 </h2>
 
-                
+                {/*Basket item for checkout product*/}
                 {basket.map(item => (
                     <CheckoutProduct
                     id={item.id}
