@@ -16,10 +16,10 @@ function Login() {
                 <form>
                     <h5>E-mail</h5>
                         {/* <iput type='text' value={email} onChange={e => SettingsSystemDaydreamOutlined(e.targer.value)}/> */}
-                    <input type='test' />
+                        <input type='test' />
                     <h5>Password</h5>
-                    <input type='password' />
-                    <button>Sign In</button>
+                        <input type='password' />
+                    <button className='login__signInButton'>Sign In</button>
 
                 </form>
 
@@ -27,6 +27,8 @@ function Login() {
                     By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use & Sale. Please
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
+
+                <button className='login__registerButton'>Create your amazon account</button>{/*Register button if you dont have an account */}
         </div>
 
         
