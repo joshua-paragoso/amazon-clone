@@ -3,6 +3,7 @@ import "./App.css";
 import Checkout from "./Checkout";
 import Header from "./Header";
 import Home from "./Home";
+import Login from "./Login"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -11,20 +12,22 @@ function App() {
     <Router>
       <div className="app">
         {/* Header will now appear on both home and checkout */}
-        <Header />
+        
         
         <Switch> 
           
           <Route path="/login">  {/* goes to login page */}
-            <h1> LOGIN PAGE</h1>
+            <Login/>
           </Route>
 
           <Route path="/checkout">  {/* goes to checkout page */}
+            <Header />
             <Checkout/>
           </Route>
           
           
           <Route path="/">{/* goes to main page */}
+            <Header />
             <Home />
           </Route>
 
