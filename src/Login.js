@@ -19,6 +19,7 @@ function Login() {
         //some fancy firebase register
         
     }
+    
     return (
     <div className='login'>
         <Link to ='/'>
