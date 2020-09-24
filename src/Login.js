@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
 import './Login.css'
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import {auth} from "./firebase";
+
 
 function Login() {
 
+    const history = useHistory(); //program to change url
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,7 +20,14 @@ function Login() {
         e.preventDefault();
 
         //some fancy firebase register
-        
+        //if everything is done right, a user will be created
+        auth.createUserWithEmailAndPassword(email, password).then((auth) => {
+            console.log(auth);
+            //if auth is good, push to home page
+            if(auth){
+                history.push('/');
+            }
+        }).catch(error => alert(error.message)) //else return error
     }
     
     return (
