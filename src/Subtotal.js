@@ -1,11 +1,14 @@
 import React from 'react'
 import "./Subtotal.css"
 import CurrenyFormat from "react-currency-format"
-// import { Button } from '@material-ui/core'
 import { useStateValue } from "./StateProvider";
+import { useHistory } from "react-router-dom";
+import {getBasketTotal } from "./reducer";
+import { HistoryTwoTone } from '@material-ui/icons';
 
 function Subtotal() {
 
+    const history = useHistory();
     const [ {basket}] = useStateValue();
     
     //total cost of item
@@ -39,14 +42,14 @@ function Subtotal() {
                 
                
                 decimalScale={2}
-                value={0} // This is where you do day 2 hmwkr 
+                value={getBasketTotal(basket)} // This is where you do day 2 hmwkr 
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}
             />
-
-            <button> Proceed to checkout</button>
-        </div>
+            {/*redirect tp payment */}
+            <button onClick={e => history.push('/payment')}>Proceed to Checkout</button>
+    </div>
     );
 }
 
