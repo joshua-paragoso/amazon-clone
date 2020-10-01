@@ -45,6 +45,8 @@ function Payment() {
 
     }, [basket])
 
+    console.log('The secret is >>>', clientSecret)
+    
     const handleSubmit = async(e) => {
         //do all fancy strip
         e.preventDefault();//stops from refreshing
