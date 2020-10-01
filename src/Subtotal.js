@@ -29,9 +29,6 @@ function Subtotal() {
                     <>
                         <p>
                             {/*Part of the Homework*/}
-                            {/* Subtotal ({basket.length} items):
-                                <strong> ${calculatedTotal(basket)} </strong> */}
-                                
                                  Subtotal ({basket.length} items):
                                 <strong> ${calculatedTotal(basket)} </strong>
 
