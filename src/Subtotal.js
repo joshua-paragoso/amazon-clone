@@ -9,7 +9,7 @@ import { HistoryTwoTone } from '@material-ui/icons';
 function Subtotal() {
 
     const history = useHistory();
-    const [ {basket}] = useStateValue();
+    const [ {basket},dispatch] = useStateValue();
     
     //total cost of item
     const calculatedTotal = (basket) => {
@@ -29,8 +29,12 @@ function Subtotal() {
                     <>
                         <p>
                             {/*Part of the Homework*/}
-                            Subtotal ({basket.length} items):
+                            {/* Subtotal ({basket.length} items):
+                                <strong> ${calculatedTotal(basket)} </strong> */}
+                                
+                                 Subtotal ({basket.length} items):
                                 <strong> ${calculatedTotal(basket)} </strong>
+
                         </p>
 
                         <small className="subtotal__gift">
@@ -42,7 +46,8 @@ function Subtotal() {
                 
                
                 decimalScale={2}
-                value={getBasketTotal(basket)} // This is where you do day 2 hmwkr 
+                // value={getBasketTotal(basket)} // This is where you do day 2 hmwkr 
+                value={0} // This is where you do day 2 hmwkr 
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"$"}

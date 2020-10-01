@@ -141,7 +141,8 @@ function Payment() {
                                     )}
 
                                     decimalScale={2}
-                                    value={getBasketTotal(basket)} 
+                                    // value={0} 
+                                    value={getBasketTotal(basket)}
                                     displayType={"text"}
                                     thousandSeparator={true}
                                     prefix={"$"}
