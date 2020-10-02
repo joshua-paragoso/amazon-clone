@@ -7,6 +7,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
 import axios from './axios';
+import {db} from "./firebase";
 
 function Payment() {
 
@@ -46,7 +47,8 @@ function Payment() {
     }, [basket])
 
     console.log('The secret is >>>', clientSecret)
-    
+    console.log('👱', user)
+
     const handleSubmit = async(e) => {
         //do all fancy strip
         e.preventDefault();//stops from refreshing
@@ -61,9 +63,26 @@ function Payment() {
         }).then(({paymentIntent}) => {
             //paymentInter payment confirmation
 
+            db
+              .collection('users')
+              .doc(user?.uid)
+              .collection('orders')
+              .doc(paymentIntent.id)
+              .set({
+                  basket: basket,
+                  amount: paymentIntent.amount,
+                  created: paymentIntent.created
+              })
+
+
             setSucceeded(true); //if transaction was good
             setError(null); // no error
             setProcessing(false);//nothing will be processing
+
+            //empty basket once payment is completed
+            dispatch({
+                type: 'EMPTY_BASKET'
+            })
 
             history.replace('/orders') //dont want people to come back to payment page, throw them to the orders page instead
 

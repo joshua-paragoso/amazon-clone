@@ -4,10 +4,11 @@ import Checkout from "./Checkout";
 import Header from "./Header";
 import Home from "./Home";
 import Login from "./Login"
+import Payment from "./Payment";
+import Orders from "./Orders"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {auth} from "./firebase";
 import { useStateValue } from "./StateProvider";
-import Payment from "./Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
@@ -53,6 +54,11 @@ function App() {
           
           <Route path="/login">  {/* goes to login page */}
             <Login/>
+          </Route>
+
+          <Route path="/orders">  {/* goes to orders page */}
+            <Header />
+            <Orders />
           </Route>
 
           <Route path="/checkout">  {/* goes to checkout page */}

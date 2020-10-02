@@ -25,6 +25,12 @@ const reducer=(state, action) => {
                 basket: [...state.basket, action.item],
             };
 
+        case "EMPTY_BASKET":
+            return{
+                ...state,
+                basket: [],
+            };
+
         //when you press the basket to remove
         case "REMOVE_FROM_BASKET":
                 //find the index youre trying to delete
