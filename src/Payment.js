@@ -61,8 +61,6 @@ function Payment() {
             }
         //when this is finish, something will come back
         }).then(({paymentIntent}) => {
-            //paymentInter payment confirmation
-
             db
               .collection('users')
               .doc(user?.uid)
