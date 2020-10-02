@@ -19,12 +19,12 @@ const stripe = require("stripe")("sk_test_51HVq06AlzYoQd5L5pennPjhXM488tLqKdKzm4
     
     //post request
     app.post("/payments/create", async (request, response) => {
-    const total = request.query.total;
-    console.log("Payment Request Received for >>> ", total);
+        const total = request.query.total;
+        console.log("Payment Request Received for >>> ", total);
 
     const paymentIntent = await stripe.paymentIntents.create({
-    amount: total, // subunits of the currency
-    currency: "usd",
+        amount: total, // subunits of the currency
+        currency: "usd",
     });
 
         // OK - Created
