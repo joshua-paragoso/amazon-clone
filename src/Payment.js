@@ -49,18 +49,56 @@ function Payment() {
     console.log('The secret is >>>', clientSecret)
     console.log('👱', user)
 
-    const handleSubmit = async(e) => {
-        //do all fancy strip
-        e.preventDefault();//stops from refreshing
+    // const handleSubmit = async(e) => {
+    //     //do all fancy strip
+    //     e.preventDefault();//stops from refreshing
+    //     setProcessing(true);
+
+    //     //knows how much you charge the cilent
+    //     const payload = await stripe.confirmCardPayment(clientSecret, {
+    //         payment_method: {
+    //             card: elements.getElement(CardElement)
+    //         }
+    //     //when this is finish, something will come back
+    //     }).then(({paymentIntent}) => {
+    //         db
+    //           .collection('users')
+    //           .doc(user?.uid)
+    //           .collection('orders')
+    //           .doc(paymentIntent.id)
+    //           .set({
+    //               basket: basket,
+    //               amount: paymentIntent.amount,
+    //               created: paymentIntent.created
+    //           })
+
+
+    //         setSucceeded(true); //if transaction was good
+    //         setError(null); // no error
+    //         setProcessing(false);//nothing will be processing
+
+    //         //empty basket once payment is completed
+    //         dispatch({
+    //             type: 'EMPTY_BASKET'
+    //         })
+
+    //         history.replace('/orders') //dont want people to come back to payment page, throw them to the orders page instead
+
+    //     })
+    // }
+
+    const handleSubmit = async (event) => {
+        // do all the fancy stripe stuff...
+        event.preventDefault();
         setProcessing(true);
 
-        //knows how much you charge the cilent
         const payload = await stripe.confirmCardPayment(clientSecret, {
             payment_method: {
                 card: elements.getElement(CardElement)
             }
-        //when this is finish, something will come back
-        }).then(({paymentIntent}) => {
+        }).then(({ paymentIntent }) => {
+            // paymentIntent = payment confirmation
+
             db
               .collection('users')
               .doc(user?.uid)
@@ -72,19 +110,17 @@ function Payment() {
                   created: paymentIntent.created
               })
 
+            setSucceeded(true);
+            setError(null)
+            setProcessing(false)
 
-            setSucceeded(true); //if transaction was good
-            setError(null); // no error
-            setProcessing(false);//nothing will be processing
-
-            //empty basket once payment is completed
             dispatch({
                 type: 'EMPTY_BASKET'
             })
 
-            history.replace('/orders') //dont want people to come back to payment page, throw them to the orders page instead
-
+            history.replace('/orders')
         })
+
     }
 
     const handleChange = e=> {
